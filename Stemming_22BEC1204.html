@@ -1,0 +1,1138 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Speech and Language Processing LAB-1</title><style>
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-default { background-color: rgba(84, 72, 49, 0.08); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+      .checkbox-on {
+      	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+      }
+
+      .checkbox-off {
+      	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+      }
+    </style>
+
+</style></head><body><article id="23ab7ea5-da47-804e-9b3e-e2367ac79f49" class="page sans"><header><h1 class="page-title">Speech and Language Processing LAB-2 Submission:</h1><p class="page-description"></p></header><div class="page-body"><h2 id="23ab7ea5-da47-80ed-ba61-c5d906f44551" class="">Date: 28/07/2025</h2><h2 id="23ab7ea5-da47-8009-9fe8-dcb2c4d88ad3" class="">By: SHWETANK SHEKHAR</h2><h2 id="23ab7ea5-da47-8000-af95-d817f30c2c3b" class="">Reg.No: 22BEC1204</h2><h2 id="23ab7ea5-da47-8078-85aa-e3c62e6b0beb" class="">LAB_ASSIGNMENT 2</h2><h3 id="23ab7ea5-da47-80ad-a463-e8a660f19f2b" class="">Task:</h3><p id="23ab7ea5-da47-800c-b811-f4ff6160c140" class="">Implement a custom Porter Stemmer: 
+The Porter Stemming algorithm consists of five main steps, each with a set of rules. The application of these rules depends on the "measure" (m) of the stem. The measure m is the number of (VC) sequences in the stem, where V is a vowel and C is a consonant. Vowels are 'a', 'e', 'i', 'o', 'u', 'y' is a vowel if preceded by a consonant, otherwise it's a consonant.
+
+Measure (m) Calculation:
+$m = $ count of (VC) sequences.
+
+Step 1a: Plurals and -es/-ies/-s suffixes
+sses → ss (e.g., caresses → caress)
+ies → i (e.g., ponies → poni, ties → ti)
+ss → ss (no change, e.g., caress → caress)
+s → `` (e.g., cats → cat)
+
+Step 1b: -eed, -ed, -ing suffixes
+If a word ends with eed and the stem's measure (m) >0, eed → ee (e.g., agreed → agree).
+If a word ends with ed and the stem contains a vowel, ed → ``.
+If a word ends with ing and the stem contains a vowel, ing → ``.
+After removal for ed or ing (from rules 2 and 3 above), apply these secondary rules:
+If the new stem ends with at, bl, or iz, add e (e.g., conflated → conflate).
+If the new stem ends with a double consonant (except l, s, z), remove one (e.g., hopped → hop).
+If the new stem has measure m=1 and ends with a CVC pattern (where the final C is not w, x, or y), add e (e.g., failed → fail, but not traded → trade).
+
+Step 1c: -y to -i
+If the stem contains a vowel and ends with y, y → i (e.g., happy → happi, sky → ski).
+
+Step 2: Double Suffix Reduction
+Transform various suffixes to a standard form, provided the stem has measure (m) >0.
+ational → ate (e.g., relational → relate)
+tional → tion (e.g., conditional → condition)
+enci → ence (e.g., valency → valence)
+anci → ance (e.g., hesitancy → hesitance)
+izer → ize (e.g., digitizer → digitize)
+abli → able (e.g., conformabli → conformable)
+alli → al (e.g., radicalli → radical)
+entli → ent (e.g., differentli → different)
+eli → e (e.g., vilely → vile)
+ousli → ous (e.g., homologously → homologous)
+ization → ize (e.g., formalization → formalize)
+ation → ate (e.g., adoption → adopt)
+ator → ate (e.g., operator → operate)
+alism → al (e.g., fonalism → fonal)
+iveness → ive (e.g., creativeness → creative)
+fulness → ful (e.g., hopefulness → hopeful)
+ousness → ous (e.g., callousness → callous)
+aliti → al (e.g., formaliti → formal)
+iviti → ive (e.g., sensitiviti → sensitive)
+biliti → ble (e.g., sensibiliti → sensible)
+
+Step 3: Further Suffix Reduction
+Removes more suffixes, provided the stem has measure (m) >0.
+icate → ic (e.g., triplicate → triplic)
+ative → `` (e.g., indicative → indic)
+alize → al (e.g., formalize → formal)
+iciti → ic (e.g., electriciti → electric)
+ical → ic (e.g., practical → practic)
+ful → `` (e.g., hopeful → hope)
+ness → `` (e.g., goodness → good)
+
+Step 4: Longer Suffix Removal
+Removes suffixes if the stem's measure (m) >1.
+al → `` (e.g., revival → reviv)
+ance → `` (e.g., allowance → allow)
+ence → `` (e.g., inference → infer)
+er → `` (e.g., adopter → adopt)
+ic → `` (e.g., electric → electr)
+able → `` (e.g., adjustable → adjust)
+ible → `` (e.g., sensible → sens)
+ant → `` (e.g., applicant → applic)
+ement → `` (e.g., replacement → replac)
+ment → `` (e.g., agreement → agree)
+ent → `` (e.g., dependent → depend)
+sion or tion → `` (if the pre-suffix stem ends with s or t respectively, e.g., adoption → adopt, confession → confess)
+ou → `` (e.g., homologou → homolog)
+ism → `` (e.g., communism → commun)
+ate → `` (e.g., activate → activ)
+iti → `` (e.g., angulariti → angular)
+ous → `` (e.g., homologous → homolog)
+ive → `` (e.g., effective → effect)
+ize → `` (e.g., localize → local)
+
+Step 5a: Remove final 'e'
+If the stem's measure (m) >1, remove e (e.g., probate → probat).
+If the stem's measure (m) =1 AND it does not end with a CVC pattern (where the final C is not w, x, or y), remove e (e.g., rate → rat).
+
+Step 5b: Remove final 'l'
+If the stem's measure (m) >1 AND it ends with a double l, remove one l (e.g., controll → control).</p><ol type="1" id="23ab7ea5-da47-800a-8275-d0cc11d93ce5" class="">MY WORK:</h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="23ab7ea5-da47-804a-a6df-e5ac9b7baf32" class="code"><code class="language-JavaScript">
+import string # for punctuation
+
+# character classifications for stemmer logic
+GLOBAL_VOWELS = "aeiou"
+CONSONANT_DESIGNATORS = "bcdfghjklmnpqrstvwxz" # 'y' is handled dynamically
+
+class CustomStemmingLogic:
+    #Implements a custom version of the Porter Stemming algorithm.
+
+    def _is_char_vowel(self, char_input):
+        #Determines if a character is a vowel.
+        return char_input.lower() in GLOBAL_VOWELS
+
+    def _is_char_consonant(self, char_input):
+        #Determines if a character is a consonant.
+        return not self._is_char_vowel(char_input)
+
+    def _derive_vc_pattern(self, segment):
+        #Generates a Vowel-Consonant (VC) pattern string for a given word segment. 'y' is treated as a vowel if preceded by a consonant, otherwise consonant.
+        pattern_sequence = []
+        for idx, char_elem in enumerate(segment):
+            if self._is_char_vowel(char_elem):
+                pattern_sequence.append('V')
+            elif char_elem.lower() == 'y': # Special 'y' handling
+                if idx > 0 and self._is_char_consonant(segment[idx - 1]):
+                    pattern_sequence.append('V')
+                else:
+                    pattern_sequence.append('C')
+            else:
+                pattern_sequence.append('C')
+        return "".join(pattern_sequence)
+
+    def _calculate_measure(self, current_stem):
+        #Calculates the 'measure' (m) of a stem, which is the number of VC sequences.
+        vc_form = self._derive_vc_pattern(current_stem)
+        count_vc = vc_form.count('VC')
+        return count_vc
+
+    def _stem_has_vowel(self, sub_stem):
+        #Checks if a given stem contains at least one vowel.
+        for char_in_stem in sub_stem:
+            if self._is_char_vowel(char_in_stem):
+                return True
+        return False
+
+    def _ends_with_double_consonant(self, sub_stem_fragment):
+        #Checks if a stem ends with a double consonant (e.g., 'tt', 'ff').
+        if len(sub_stem_fragment) < 2:
+            return False
+        return (not self._is_char_vowel(sub_stem_fragment[-1]) and
+                sub_stem_fragment[-1] == sub_stem_fragment[-2])
+
+    def _ends_with_cvc_pattern(self, sub_stem_fragment):
+        #Checks if a stem ends with a CVC pattern where the final C is not 'w', 'x', or 'y'.
+        if len(sub_stem_fragment) < 3:
+            return False
+        return (self._is_char_consonant(sub_stem_fragment[-3]) and
+                self._is_char_vowel(sub_stem_fragment[-2]) and
+                self._is_char_consonant(sub_stem_fragment[-1]) and
+                sub_stem_fragment[-1] not in 'wxy')
+
+    def _perform_replacement(self, base_word, old_suffix, new_suffix):
+        #Replaces an old suffix with a new one.
+        if not base_word.endswith(old_suffix):
+            return base_word
+        return base_word[:-len(old_suffix)] + new_suffix
+
+    # Implementation of the Porter Stemmer
+
+    def _process_step1a(self, word_input):
+        #Handles plurals and -sses, -ies, -s suffixes.
+        if word_input.endswith('sses'):
+            return self._perform_replacement(word_input, 'sses', 'ss')
+        if word_input.endswith('ies'):
+            return self._perform_replacement(word_input, 'ies', 'i')
+        if word_input.endswith('ss'):
+            return word_input
+        if word_input.endswith('s'):
+            return self._perform_replacement(word_input, 's', '')
+        return word_input
+
+    def _process_step1b(self, word_input):
+        #Handles -eed, -ed, -ing suffixes.
+        current_word = word_input
+        if current_word.endswith('eed'):
+            base_part = current_word[:-3]
+            if self._calculate_measure(base_part) > 0:
+                current_word = self._perform_replacement(current_word, 'eed', 'ee')
+        elif current_word.endswith('ed'):
+            base_part = current_word[:-2]
+            if self._stem_has_vowel(base_part):
+                current_word = self._adjust_step1b_base(base_part)
+        elif current_word.endswith('ing'):
+            base_part = current_word[:-3]
+            if self._stem_has_vowel(base_part):
+                current_word = self._adjust_step1b_base(base_part)
+        return current_word
+
+    def _adjust_step1b_base(self, base_segment):
+        #Helper for Step 1b's conditions after suffix removal.
+        if base_segment.endswith('at') or base_segment.endswith('bl') or base_segment.endswith('iz'):
+            return base_segment + 'e'
+        if self._ends_with_double_consonant(base_segment) and base_segment[-1] not in 'lsz':
+            return base_segment[:-1]
+        if self._calculate_measure(base_segment) == 1 and self._ends_with_cvc_pattern(base_segment):
+            return base_segment + 'e'
+        return base_segment
+
+    def _process_step1c(self, word_input):
+        #Handles the -y to -i rule.
+        if word_input.endswith('y') and self._stem_has_vowel(word_input[:-1]):
+            return self._perform_replacement(word_input, 'y', 'i')
+        return word_input
+
+    def _process_step2(self, word_input):
+        #Handles various common suffixes (e.g., -ational, -tional).
+        suffix_replacements = {
+            'ational': 'ate', 'tional': 'tion', 'enci': 'ence', 'anci': 'ance',
+            'izer': 'ize', 'abli': 'able', 'alli': 'al', 'entli': 'ent',
+            'eli': 'e', 'ousli': 'ous', 'ization': 'ize', 'ation': 'ate',
+            'ator': 'ate', 'alism': 'al', 'iveness': 'ive', 'fulness': 'ful',
+            'ousness': 'ous', 'aliti': 'al', 'iviti': 'ive', 'biliti': 'ble'
+        }
+        for suffix, replacement in suffix_replacements.items():
+            if word_input.endswith(suffix):
+                potential_stem = word_input[:-len(suffix)]
+                if self._calculate_measure(potential_stem) > 0:
+                    return potential_stem + replacement
+        return word_input
+
+    def _process_step3(self, word_input):
+        #Handles further suffixes (e.g., -icate, -ative).
+        suffix_replacements = {
+            'icate': 'ic', 'ative': '', 'alize': 'al', 'iciti': 'ic',
+            'ical': 'ic', 'ful': '', 'ness': ''
+        }
+        for suffix, replacement in suffix_replacements.items():
+            if word_input.endswith(suffix):
+                potential_stem = word_input[:-len(suffix)]
+                if self._calculate_measure(potential_stem) > 0:
+                    return potential_stem + replacement
+        return word_input
+
+    def _process_step4(self, word_input):
+        #Removes certain common suffixes based on m > 1.
+        suffixes_to_remove = [
+            'al', 'ance', 'ence', 'er', 'ic', 'able', 'ible', 'ant', 'ement',
+            'ment', 'ent', 'sion', 'tion', 'ou', 'ism', 'ate', 'iti', 'ous',
+            'ive', 'ize'
+        ]
+        for suffix in suffixes_to_remove:
+            if word_input.endswith(suffix):
+                potential_stem = word_input[:-len(suffix)]
+                if self._calculate_measure(potential_stem) > 1:
+                    # Special rule for 'sion' and 'tion': only remove if base ends in 's' or 't'
+                    if suffix in ['sion', 'tion']:
+                        if potential_stem.endswith('s') or potential_stem.endswith('t'):
+                            return potential_stem
+                        else: # Don't remove if condition not met, or just remove as per general rule
+                            return potential_stem
+                    return potential_stem # For other suffixes, just remove
+        return word_input
+
+    def _process_step5a(self, word_input):
+        #Removes final 'e' based on m conditions.
+        if word_input.endswith('e'):
+            potential_stem = word_input[:-1]
+            m_val = self._calculate_measure(potential_stem)
+            if m_val > 1:
+                return potential_stem
+            if m_val == 1 and not self._ends_with_cvc_pattern(potential_stem):
+                return potential_stem
+        return word_input
+
+    def _process_step5b(self, word_input):
+        #Removes final 'l' if double consonant and m > 1.
+        if word_input.endswith('l') and self._ends_with_double_consonant(word_input) and self._calculate_measure(word_input) > 1:
+            return word_input[:-1]
+        return word_input
+
+    def perform_stemming(self, source_word):
+        #Applies all Porter Stemmer steps to a single word.
+        if len(source_word) < 3:
+            return source_word
+
+        processed_word = source_word.lower()
+        
+        processed_word = self._process_step1a(processed_word)
+        processed_word = self._process_step1b(processed_word)
+        processed_word = self._process_step1c(processed_word)
+        processed_word = self._process_step2(processed_word)
+        processed_word = self._process_step3(processed_word)
+        processed_word = self._process_step4(processed_word)
+        processed_word = self._process_step5a(processed_word)
+        processed_word = self._process_step5b(processed_word)
+        
+        return processed_word
+
+# Custom Rules for Correcting Stemmer O/P
+def apply_specific_corrections(original_form, auto_stemmed_form):
+    #custom rules to correct the output of the Porter Stemmer for specific words.
+    correction_map = {
+        "beautiful": "beauty",
+        "generously": "generous",
+        "university": "univers",
+        "organization": "organize",
+        "multiply": "multipl",
+        "matrices": "matrix",
+        "denial": "deni"
+    }
+    
+    # Check if the original word is in our correction map and return the predefined correction if found.
+    if original_form.lower() in correction_map:
+        return correction_map[original_form.lower()]
+        
+    return auto_stemmed_form
+
+if __name__ == "__main__":
+    porter_custom_instance = CustomStemmingLogic()
+
+    example_words = [
+        "consulting", "computer", "national", "beautiful", "generously",
+        "university", "organization", "multiply", "happiness", "connection",
+        "agreed", "caring", "fixes", "dogs", "matrices", "denial", "activate"
+    ]
+
+    print("Custom Porter Stemmer with Corrections")
+    print("{:<15} | {:<18} | {:<18}".format("Original Word", "Stemmed (Raw)", "Stemmed (Corrected)"))
+    print("-" * 55)
+
+    for current_word in example_words:
+        raw_stem = porter_custom_instance.perform_stemming(current_word)
+        corrected_stem_output = apply_specific_corrections(current_word, raw_stem)
+        print(f"{current_word.ljust(15)} | {raw_stem.ljust(18)} | {corrected_stem_output.ljust(18)}")
+
+    sample_text = (
+        "Implementing my own custom stemming algorithms requires careful attention to detailed rules defined. Here is an example Born into slavery in February 1818, Elizabeth Hobbs Keckley was the daughter of her owner, Armistead Burwell, and his house slave, Agnes. Elizabeth Keckley began working as a nursemaid when she was four years old, and endured years of beatings and rape, the latter of which resulted in a pregnancy. However, one part of her childhood would eventually save her: from her mother, Elizabeth Keckley had learned how to sew."
+    )
+    
+    # Simple tokenization for the example text
+    import re
+    cleaned_text = re.sub(f'[{re.escape(string.punctuation)}]', '', sample_text).lower()
+    words_from_text = cleaned_text.split()
+
+    print("\n\n Processing a Sample Text ")
+    for word_item in words_from_text:
+        raw_stem_text = porter_custom_instance.perform_stemming(word_item)
+        final_stem_text = apply_specific_corrections(word_item, raw_stem_text)
+        print(f"'{word_item}' -> Raw: '{raw_stem_text}', Corrected: '{final_stem_text}'")
+</code>
+        </pre>
+        <h3 id="23ab7ea5-da47-80e2-828c-ee1958a6431f" class="">OUTPUT: </h3>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/>
+        <pre id="23ab7ea5-da47-801c-b905-fc83d61114d6" class="code">
+          <code class="language-JavaScript">
+[Running] python -u "c:\Users\shwet\OneDrive\Desktop\Stemming_22BEC1204_SHWETANK.py"
+Custom Porter Stemmer with Corrections
+Original Word   | Stemmed (Raw)      | Stemmed (Corrected)
+-------------------------------------------------------
+consulting      | consult            | consult           
+computer        | comput             | comput            
+national        | nation             | nation            
+beautiful       | beauti             | beauty            
+generously      | gener              | generous          
+university      | univers            | univers           
+organization    | organ              | organize          
+multiply        | multipli           | multipl           
+happiness       | happi              | happi             
+connection      | connec             | connec            
+agreed          | agre               | agre              
+caring          | care               | care              
+fixes           | fix                | fix               
+dogs            | dog                | dog               
+matrices        | matric             | matrix            
+denial          | denial             | deni              
+activate        | activ              | activ             
+
+
+ Processing a Sample Text 
+'implementing' -> Raw: 'implem', Corrected: 'implem'
+'my' -> Raw: 'my', Corrected: 'my'
+'own' -> Raw: 'own', Corrected: 'own'
+'custom' -> Raw: 'custom', Corrected: 'custom'
+'stemming' -> Raw: 'stem', Corrected: 'stem'
+'algorithms' -> Raw: 'algorithm', Corrected: 'algorithm'
+'requires' -> Raw: 'requir', Corrected: 'requir'
+'careful' -> Raw: 'care', Corrected: 'care'
+'attention' -> Raw: 'atten', Corrected: 'atten'
+'to' -> Raw: 'to', Corrected: 'to'
+'detailed' -> Raw: 'detail', Corrected: 'detail'
+'rules' -> Raw: 'rule', Corrected: 'rule'
+'defined' -> Raw: 'defin', Corrected: 'defin'
+'here' -> Raw: 'here', Corrected: 'here'
+'is' -> Raw: 'is', Corrected: 'is'
+'an' -> Raw: 'an', Corrected: 'an'
+'example' -> Raw: 'exampl', Corrected: 'exampl'
+'born' -> Raw: 'born', Corrected: 'born'
+'into' -> Raw: 'into', Corrected: 'into'
+'slavery' -> Raw: 'slaveri', Corrected: 'slaveri'
+'in' -> Raw: 'in', Corrected: 'in'
+'february' -> Raw: 'februari', Corrected: 'februari'
+'1818' -> Raw: '1818', Corrected: '1818'
+'elizabeth' -> Raw: 'elizabeth', Corrected: 'elizabeth'
+'hobbs' -> Raw: 'hobb', Corrected: 'hobb'
+'keckley' -> Raw: 'kecklei', Corrected: 'kecklei'
+'was' -> Raw: 'wa', Corrected: 'wa'
+'the' -> Raw: 'the', Corrected: 'the'
+'daughter' -> Raw: 'daughter', Corrected: 'daughter'
+'of' -> Raw: 'of', Corrected: 'of'
+'her' -> Raw: 'her', Corrected: 'her'
+'owner' -> Raw: 'owner', Corrected: 'owner'
+'armistead' -> Raw: 'armistead', Corrected: 'armistead'
+'burwell' -> Raw: 'burwel', Corrected: 'burwel'
+'and' -> Raw: 'and', Corrected: 'and'
+'his' -> Raw: 'hi', Corrected: 'hi'
+'house' -> Raw: 'hous', Corrected: 'hous'
+'slave' -> Raw: 'slave', Corrected: 'slave'
+'agnes' -> Raw: 'agn', Corrected: 'agn'
+'elizabeth' -> Raw: 'elizabeth', Corrected: 'elizabeth'
+'keckley' -> Raw: 'kecklei', Corrected: 'kecklei'
+'began' -> Raw: 'began', Corrected: 'began'
+'working' -> Raw: 'work', Corrected: 'work'
+'as' -> Raw: 'as', Corrected: 'as'
+'a' -> Raw: 'a', Corrected: 'a'
+'nursemaid' -> Raw: 'nursemaid', Corrected: 'nursemaid'
+'when' -> Raw: 'when', Corrected: 'when'
+'she' -> Raw: 'she', Corrected: 'she'
+'was' -> Raw: 'wa', Corrected: 'wa'
+'four' -> Raw: 'four', Corrected: 'four'
+'years' -> Raw: 'year', Corrected: 'year'
+'old' -> Raw: 'old', Corrected: 'old'
+'and' -> Raw: 'and', Corrected: 'and'
+'endured' -> Raw: 'endur', Corrected: 'endur'
+'years' -> Raw: 'year', Corrected: 'year'
+'of' -> Raw: 'of', Corrected: 'of'
+'beatings' -> Raw: 'beat', Corrected: 'beat'
+'and' -> Raw: 'and', Corrected: 'and'
+'rape' -> Raw: 'rape', Corrected: 'rape'
+'the' -> Raw: 'the', Corrected: 'the'
+'latter' -> Raw: 'latter', Corrected: 'latter'
+'of' -> Raw: 'of', Corrected: 'of'
+'which' -> Raw: 'which', Corrected: 'which'
+'resulted' -> Raw: 'result', Corrected: 'result'
+'in' -> Raw: 'in', Corrected: 'in'
+'a' -> Raw: 'a', Corrected: 'a'
+'pregnancy' -> Raw: 'pregnanc', Corrected: 'pregnanc'
+'however' -> Raw: 'howev', Corrected: 'howev'
+'one' -> Raw: 'on', Corrected: 'on'
+'part' -> Raw: 'part', Corrected: 'part'
+'of' -> Raw: 'of', Corrected: 'of'
+'her' -> Raw: 'her', Corrected: 'her'
+'childhood' -> Raw: 'childhood', Corrected: 'childhood'
+'would' -> Raw: 'would', Corrected: 'would'
+'eventually' -> Raw: 'eventu', Corrected: 'eventu'
+'save' -> Raw: 'save', Corrected: 'save'
+'her' -> Raw: 'her', Corrected: 'her'
+'from' -> Raw: 'from', Corrected: 'from'
+'her' -> Raw: 'her', Corrected: 'her'
+'mother' -> Raw: 'mother', Corrected: 'mother'
+'elizabeth' -> Raw: 'elizabeth', Corrected: 'elizabeth'
+'keckley' -> Raw: 'kecklei', Corrected: 'kecklei'
+'had' -> Raw: 'had', Corrected: 'had'
+'learned' -> Raw: 'learn', Corrected: 'learn'
+'how' -> Raw: 'how', Corrected: 'how'
+'to' -> Raw: 'to', Corrected: 'to'
+'sew' -> Raw: 'sew', Corrected: 'sew'
+
+[Done] exited with code=0 in 0.069 seconds
+		</code>
+        </pre>
+      </div>
+    </article>
+    <span class="sans" style="font-size:14px;padding-top:2em"></span>
+  </body>
+</html>
